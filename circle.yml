@@ -14,3 +14,9 @@ dependencies:
 test:
   override:
     - gcloud --version
+
+deployment
+  gcr:
+    branch: gcr-example
+    commands:
+      - docker build -t asia.gcr.io/circleci-gcr-example/circle-test  .
