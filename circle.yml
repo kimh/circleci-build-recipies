@@ -1,11 +1,14 @@
 machine:
   environment:
+    # You don't have to modify the following env vars
     CLOUDSDK_INSTALL_DIR: /home/ubuntu
     CLOUDSDK_CORE_DISABLE_PROMPTS: 1
     GOOGLE_SECRET_FILE: /tmp/google_secret.json
+
+    # You need to modify following env vars according to your setting
     GCR_HOST: asia.gcr.io
     IMAGE: circleci-gcr-example/circle-test
-    TAG: v0.1.1 
+    TAG: v0.0.1 
 
   services:
     - docker
@@ -17,6 +20,7 @@ dependencies:
 
 test:
   pre:
+    # $GOOGLE_SECRET_JSON is saved via CircleCI project UI
     - echo $GOOGLE_SECRET_JSON > $GOOGLE_SECRET_FILE
     - gcloud auth activate-service-account --key-file $GOOGLE_SECRET_FILE
 
