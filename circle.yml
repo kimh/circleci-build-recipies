@@ -1,6 +1,7 @@
 dependencies:
   override:
-    - echo y | android update sdk --no-ui --all --filter 101
+    - exit 0
+
 test:
   override:
-    - android list targets | grep Google
+    - exit 0
