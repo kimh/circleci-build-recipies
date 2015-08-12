@@ -4,4 +4,6 @@ This repo is the collection of CircleCI builds. The collection includes useful e
 #### Integration with GCR (Google Container Registry)
 https://github.com/kimh/circleci-build-examples/tree/gcr-example
 
+#### Caching Docker
+https://github.com/kimh/circleci-build-examples/tree/caching-docker
 
