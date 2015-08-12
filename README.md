@@ -1,6 +1,6 @@
 [![Circle CI](https://circleci.com/gh/kimh/circleci-build-examples/tree/caching-docker.svg?style=svg)](https://circleci.com/gh/kimh/circleci-build-examples/tree/caching-docker)
 
-#### Caching bundle install with docker
+### Caching bundle install with docker
 
 ![screenshot](screenshot.png)
 
@@ -41,14 +41,16 @@ ADD Gemfile /tmp
 RUN bundle install
 ```
 
-By using `docker save` and `docker load`, the instructions up to `WORKDIR /tmp` are cached. However, you will find that the subsequent instructions from `WORKDIR /tmp` are never cached.
+By using `docker save` and `docker load`, the instructions up to `WORKDIR /tmp` are cached. However, you will find that the instructions from `WORKDIR /tmp` are never cached.
 You want to avoid this because `bundle install` will also always run which makes your builds significantly slow. 
 
 Why this happens??
 
 Docker uses mtime of files to invalidate caches for ADD instructions. This means that Docker thinks cache must be invalidated if mtime of files are changed even if file contents are the same.
-And here is annoying part: git updates the mtime of files to the time when the repo is cloned. So, when CircleCI clones your repo in the beginning of the build, the mtime of files differ from the last builds and this will
-make Docker to invalidate the cache.
+
+And here is annoying part: git updates the mtime of files to the time when the repo is cloned.
+
+So, when CircleCI clones your repo in the beginning of the build, the mtime of files differ from the last builds and this will make Docker to invalidate the cache.
 
 #### Solution
 To solve this, we will use a hack to update mtime of all of your files. The hack goes to circle.yml.
