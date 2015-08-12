@@ -1,7 +1,17 @@
-dependencies:
-  override:
-    - exit 0
+machine:
+  services:
+    - docker
 
-test:
+checkout:
+  post:
+    - find . -exec touch -t 201401010000 {} \;
+    - for x in $(git ls-tree --full-tree --name-only -r HEAD); do touch -t $(date -d "$(git log -1 --format=%ci "${x}")" +%y%m%d%H%M.%S) "${x}"; done
+
+dependencies:
+  cache_directories:
+    - /home/ubuntu/docker
+
   override:
-    - exit 0
+    - if [[ -e ~/docker/image.tar ]]; then echo "Using docker cache"; docker load -i ~/docker/image.tar; fi
+    - docker build -t my-image .
+    - mkdir -p ~/docker; docker save my-image > ~/docker/image.tar
