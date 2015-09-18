@@ -1,10 +1,5 @@
-## What's this?
-This repo is the collection of CircleCI builds. The collection includes useful examples, techniques and hacks on CircleCI.
-You can switch branches to view each examples or follow the links below. You can go to corresponding CircleCI builds by clicking the status badge in each branch.
+## Using ramdisk for Docker storage
+This example shows how to use ramdisk for Docker storage. The intention of using ramdisk is to see if we have a performance gain for docker export/load and docker IO peformance in general.
 
-#### Integration with GCR (Google Container Registry)
-https://github.com/kimh/circleci-build-examples/tree/gcr-example
-
-#### Caching Docker
-https://github.com/kimh/circleci-build-examples/tree/caching-docker
-
+### Note
+This example is still under experiment and we do not know if we can improve Docker IO performance.
