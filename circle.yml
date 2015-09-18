@@ -1,3 +1,17 @@
+machine:
+  pre:
+    # Create ramdisk
+    - mkdir ramdisk
+    - sudo mount -o size=128G -t ramfs none /home/ubuntu/ramdisk
+    - sudo chown ubuntu:ubuntu ramdisk
+    # Delete /var/lib/docker for demo purpose
+    - sudo rm -rf /var/lib/docker
+    # Install docker and use ramdisk
+    - sudo curl -L -o /usr/bin/docker 'http://s3-external-1.amazonaws.com/circle-downloads/docker-1.8.1-circleci'
+    - sudo sed -i -e 's/DOCKER_OPTS="-s btrfs -e lxc"/DOCKER_OPTS="-e lxc -g /home/ubuntu/ramdisk"/' /etc/default/docker
+    - sudo chmod 0755 /usr/bin/docker
+    - sudo service docker start
+
 dependencies:
   override:
     - exit 0
