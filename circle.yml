@@ -14,8 +14,11 @@ machine:
 
 dependencies:
   override:
-    - exit 0
+    # Laoding saved image
+    - curl -o ubuntu.tar.gz https://s3-ap-northeast-1.amazonaws.com/z1yo2s66zq/ubuntu.tar.gz
+    - tar zxvf ubuntu.tar.gz
 
 test:
   override:
-    - docker pull busybox
+    - docker load -i ubuntu.tar
+    - docker run ubuntu uptime
