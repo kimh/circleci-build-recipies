@@ -2,7 +2,7 @@ machine:
   pre:
     # Create ramdisk
     - mkdir ramdisk
-    - sudo mount -o size=128G -t ramfs none /home/ubuntu/ramdisk
+    - sudo mount -o size=5G -t tmpfs none /home/ubuntu/ramdisk
     - sudo chown ubuntu:ubuntu ramdisk
     # Delete /var/lib/docker for demo purpose
     - sudo rm -rf /var/lib/docker
