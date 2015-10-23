@@ -8,7 +8,7 @@ https://github.com/kimh/circleci-build-examples/tree/gcr-example
 #### Caching Docker
 https://github.com/kimh/circleci-build-examples/tree/caching-docker
 
-#### Test metada collection for Clojure with test2junit
+#### (New!!) Test metada collection for Clojure with test2junit
 https://github.com/kimh/circleci-build-recipies/tree/clojure-test-metadata-with-test2junit
 
 #### Using ramdisk for Docker storage
