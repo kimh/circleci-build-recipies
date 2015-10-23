@@ -4,6 +4,8 @@ By using [test2junit](https://github.com/ruedigergad/test2junit) you can collect
 
 ![screenshot](screenshot.png)
 
+[Here](https://circleci.com/gh/kimh/circleci-build-recipies/78#tests) is a working demo.
+
 # How to collect metadata
 There are two things you need to do.
 
