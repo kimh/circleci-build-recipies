@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/kimh/circleci-build-recipies.svg?style=svg&circle-token=6c9e0e9204d266b2de110f155a4d1133bc8f0abb)](https://circleci.com/gh/kimh/circleci-build-examples/tree/clojure-test-metadata-with-test2junit)
+
 # Test metada collection for Clojure with test2junit
 
 By using [test2junit](https://github.com/ruedigergad/test2junit) you can collect test metadata for your Clojure tests and display test results nicely in a build page. [Here](https://circleci.com/gh/kimh/circleci-build-recipies/78#tests) is a working demo.
