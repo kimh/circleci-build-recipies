@@ -1,4 +1,5 @@
 [![Circle CI](https://circleci.com/gh/kimh/circleci-build-examples/tree/gcr-example.svg?style=svg)](https://circleci.com/gh/kimh/circleci-build-examples/tree/gcr-example)
+[![Circle CI](https://circleci.com/gh/kimh/circleci-build-recipies.svg?style=svg&circle-token=6c9e0e9204d266b2de110f155a4d1133bc8f0abb)](https://circleci.com/gh/kimh/circleci-build-examples/tree/gcr-example)
 
 ## Integration with GCR (Google Container Registry)
 This example shows how to push your docker images to GCR.
