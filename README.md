@@ -1,12 +1,14 @@
-## What's this?
-This repo is the collection of CircleCI builds. The collection includes useful examples, techniques and hacks on CircleCI.
-You can switch branches to view each examples or follow the links below. You can go to corresponding CircleCI builds by clicking the status badge in each branch.
+# test2junit-sample
 
-#### Integration with GCR (Google Container Registry)
-https://github.com/kimh/circleci-build-examples/tree/gcr-example
+A Clojure library designed to ... well, that part is up to you.
 
-#### Caching Docker
-https://github.com/kimh/circleci-build-examples/tree/caching-docker
+## Usage
 
-#### Using ramdisk for Docker storage
-https://github.com/kimh/circleci-build-examples/tree/docker-ramdisk
+FIXME
+
+## License
+
+Copyright © 2015 FIXME
+
+Distributed under the Eclipse Public License either version 1.0 or (at
+your option) any later version.
