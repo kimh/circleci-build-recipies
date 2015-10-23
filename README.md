@@ -1,10 +1,7 @@
 # Test metada collection for Clojure with test2junit
 
-By using [test2junit](https://github.com/ruedigergad/test2junit) you can collect test metadata for your Clojure tests and display test results nicely in a build page. Here is how it looks like.
-
+By using [test2junit](https://github.com/ruedigergad/test2junit) you can collect test metadata for your Clojure tests and display test results nicely in a build page. [Here](https://circleci.com/gh/kimh/circleci-build-recipies/78#tests) is a working demo.
 ![screenshot](screenshot.png)
-
-[Here](https://circleci.com/gh/kimh/circleci-build-recipies/78#tests) is a working demo.
 
 # How to collect metadata
 There are two things you need to do.
