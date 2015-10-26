@@ -8,7 +8,7 @@ There are two things you need to do.
 
 ### Add test2junit to project.clj
 
-You need to add test2junit to lein plugins and `:test2junit-output-dir` in your project.clj. CIRCLE_TEST_REPORTS is an env var which is automatically set by CirclCI at build time.
+You need to add `test2junit` to lein plugins and `:test2junit-output-dir` in your project.clj. `CIRCLE_TEST_REPORTS` is an env var which is automatically set by CirclCI at build time.
 
 ```
 (defproject test2junit_sample "0.1.0-SNAPSHOT"
@@ -17,9 +17,11 @@ You need to add test2junit to lein plugins and `:test2junit-output-dir` in your 
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]]
+  :main test2junit-sample.core
+  
+  ;; Add the two lines below
   :plugins [[test2junit "1.1.2"]]
-  :test2junit-output-dir ~(or (System/getenv "CIRCLE_TEST_REPORTS") "target/test2junit")
-  :main test2junit-sample.core)
+  :test2junit-output-dir ~(or (System/getenv "CIRCLE_TEST_REPORTS") "target/test2junit"))
 ```
 
 ### lein test2junit
