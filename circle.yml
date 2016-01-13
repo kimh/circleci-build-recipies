@@ -1,17 +1,15 @@
 machine:
   python:
     version: 3.5.1
- 
-  environment:
-    PKG_VERSION: 3.5.1
-    PKG_NAME: circle-pyenv-python-$PKG_VERSION
-    PKG_INSTALL_DIR: /home/ubuntu/.pyenv/versions/$PKG_VERSION
+
+  pre:
+    - curl -L -O https://s3-external-1.amazonaws.com/circle-downloads/circle-pyenv-python-3.5.1_1.0_amd64.deb
+    - sudo dpkg -i circle-pyenv-python-3.5.1_1.0_amd64.deb
 
 dependencies:
   override:
-    - gem install fpm
- 
+    - exit 0
+
 test:
   override:
-    - fpm -s dir -t deb -C $PKG_INSTALL_DIR --name $PKG_NAME --prefix $PKG_INSTALL_DIR .
-    - cp ${PKG_NAME}_1.0_amd64.deb $CIRCLE_ARTIFACTS
+    - python --version
