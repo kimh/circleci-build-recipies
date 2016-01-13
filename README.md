@@ -1,10 +1,11 @@
 ## Packaging what you want
 Sometimes the specific version of your language is missing on the CircleCI container image. Although you can always request us to preinstall, unfortunately it takes some time to release a new container image.
 
-There is one better approach, though. You can prepackage the installed version into a debian package, cache it, and reuse it from the next time.
+There is one better approach, though. You can prepackage the installed version into a debian package, store somewhere, and reuse it from the next time.
 
 This branch demonstates exactly how to do this.
 
+## How to create package
 Suppose you want to use `python 3.5.1` which is not preinstalled in the container image. You can create a test branch in one of your project, remove the existing circle.yml and put the following instead.
 
 ```
@@ -40,7 +41,7 @@ Finally, we copy the created debian package to `$CIRCLE_ARTIFACTS` so that you c
 [Here](https://circleci.com/gh/kimh/circleci-build-recipies/100#artifacts) is a build that's actually creating the package.
 
 
-## How to use the package
+## How to use package
 Once you created a package, then it's up to you where you store it. You can store in AWS S3 or in other cloud storage service and download it in every build.
 
 Assuming you store the package somewhere, you can install with `dpkg` command. Here is an example circle.yml. You can see the build [here](https://circleci.com/gh/kimh/circleci-build-recipies/101).
@@ -67,3 +68,7 @@ test:
 
 ![img2](./img2.png)
 
+## Wrapping up
+With this approach, basically you can package anything. Installing a debian package is basically the same thing as uncompressing files (with downloading overhead) so the operation is very cheap.
+
+The downside of this approach is that we are offloading the task of creating packages to our end users. We hate to do this and we are now working on making the prepackaging very easy for our users. Hopefully we can release this very soon!!
