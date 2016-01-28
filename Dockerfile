@@ -1,7 +1,7 @@
 FROM phusion/passenger-ruby21:latest
 
 RUN apt-get update
-RUN apt-get install mysql-server
+RUN apt-get install sl
 
 WORKDIR /tmp
 ADD Gemfile /tmp/
