@@ -1,4 +1,4 @@
-FROM From phusion/passenger-ruby21:latest
+FROM phusion/passenger-ruby21:latest
 
 RUN apt-get update
 RUN apt-get install mysql-server
