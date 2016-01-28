@@ -7,11 +7,11 @@ dependencies:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 
   override:
-    - docker pull kimh/toy:scratch || true
+    - docker pull kimh/build-image:scratch|| true
 
 test:
   override:
-    - docker build -t kimh/toy:scratch .
-    - docker tag kimh/toy:scratch kimh/toy:latest
-    - docker push kimh/toy:scratch
-    - docker push kimh/toy:latest
+    - docker build -t kimh/build-image:scratch .
+    - docker tag kimh/build-image:scratch kimh/build-image:
+    - docker push kimh/build-image:scratch
+    - docker push kimh/build-image:latest
