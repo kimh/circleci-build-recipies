@@ -1,7 +1,11 @@
 dependencies:
+  pre:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+
   override:
-    - exit 0
+    - docker pull kimh/toy:scratch || true:
 
 test:
   override:
-    - exit 0
+    - docker build -t kimh/toy:scratch .
+    - docker push kimh/toy:scratch
