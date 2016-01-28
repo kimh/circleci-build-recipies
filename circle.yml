@@ -7,16 +7,9 @@ dependencies:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 
   override:
-    - docker pull kimh/build-image:scratch|| true
+    - docker pull kimh/build-image:latest || true
 
 test:
   override:
-    - docker build -t kimh/build-image:scratch -f Dockerfile.staging .
-    - docker build -t kimh/build-image:scratch -f Dockerfile.production .
-
-    - docker tag kimh/build-image:scratch kimh/build-image:staging
-    - docker tag kimh/build-image:scratch kimh/build-image:production
-
-    - docker push kimh/build-image:scratch
-    - docker push kimh/build-image:staging
-    - docker push kimh/build-image:production
+    - docker build -t kimh/build-image:latest .
+    - docker push kimh/build-image:latest

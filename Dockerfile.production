@@ -1,4 +1,0 @@
-FROM ubuntu
-RUN apt-get update
-RUN echo "this is production image" > production.txt
-
