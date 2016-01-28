@@ -3,8 +3,8 @@ This branch demonstrates how we can use Docker Hub to cache docker images on Cir
 
 We will use two tagged image:
 
-- `kimh/toy:scratch`: this image is only used to level
-- `kimh/toy:latest`
+- `kimh/build-image:scratch`: this image is only used to take the 
+- `kimh/build-image:latest`:
 
 
 
