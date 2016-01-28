@@ -1,7 +1,7 @@
 machine:
   services:
     - docker
-    
+
 dependencies:
   pre:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
@@ -12,4 +12,6 @@ dependencies:
 test:
   override:
     - docker build -t kimh/toy:scratch .
+    - docker tag kimh/toy:scratch kimh/toy:latest
     - docker push kimh/toy:scratch
+    - docker push kimh/toy:latest
