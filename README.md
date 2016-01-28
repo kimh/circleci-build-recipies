@@ -11,4 +11,4 @@ In short, we are using Docker Hub as our image cache store.
 
 To see how caching works, you can compare [this](https://circleci.com/gh/kimh/circleci-build-recipies/120) and [this](https://circleci.com/gh/kimh/circleci-build-recipies/120) builds.
 
-In the first build, `docker build` took about 3 mins and `docker push` took 2 mins, both commands finish immediately in the second build thanks to cache.
+In the first build, `docker build` took about 3 mins and `docker push` took 2 mins, but both commands finish immediately in the second build thanks to cache.
