@@ -2,7 +2,10 @@
 This repo is the collection of CircleCI builds. The collection includes useful examples, techniques and hacks on CircleCI.
 You can switch branches to view each examples or follow the links below. You can go to corresponding CircleCI builds by clicking the status badge in each branch.
 
-#### (New!!) Package what you want
+#### (New!!) Caching Docker with Docker Hub
+https://github.com/kimh/circleci-build-recipies/tree/better-docker-cache
+
+#### Package what you want
 https://github.com/kimh/circleci-build-recipies/tree/package-what-you-want
 
 #### Test metada collection for Clojure with test2junit
