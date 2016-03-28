@@ -14,8 +14,5 @@ https://github.com/kimh/circleci-build-recipies/tree/clojure-test-metadata-with-
 #### Integration with GCR (Google Container Registry)
 https://github.com/kimh/circleci-build-examples/tree/gcr-example
 
-#### Caching Docker
-https://github.com/kimh/circleci-build-examples/tree/caching-docker
-
 #### Using ramdisk for Docker storage
 https://github.com/kimh/circleci-build-examples/tree/docker-ramdisk
