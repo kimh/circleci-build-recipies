@@ -1,3 +1,6 @@
+# THIS IS DEPRECATED
+We don't need to do mtime hack since https://github.com/docker/docker/pull/12031
+
 [![Circle CI](https://circleci.com/gh/kimh/circleci-build-examples/tree/caching-docker.svg?style=svg)](https://circleci.com/gh/kimh/circleci-build-examples/tree/caching-docker)
 
 ### Caching bundle install with docker
