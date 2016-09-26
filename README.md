@@ -6,22 +6,22 @@ There is one better approach, though. You can prepackage the installed version i
 This branch demonstates exactly how to do this.
 
 ## How to create package
-Suppose you want to use `python 3.5.1` which is not preinstalled in the container image. You can create a test branch in one of your project, remove the existing circle.yml and put the following instead.
+Suppose you want to use `python 3.5.2` which is not preinstalled in the container image. You can create a test branch in one of your project, remove the existing circle.yml and put the following instead.
 
 ```
 machine:
   python:
-    version: 3.5.1
- 
+    version: 3.5.2
+
   environment:
-    PKG_VERSION: 3.5.1
+    PKG_VERSION: 3.5.2
     PKG_NAME: circle-pyenv-python-$PKG_VERSION
-    PKG_INSTALL_DIR: /home/ubuntu/.pyenv/versions/$PKG_VERSION
+    PKG_INSTALL_DIR: /opt/circleci/.pyenv/versions/$PKG_VERSION
 
 dependencies:
   override:
     - gem install fpm
- 
+
 test:
   override:
     - fpm -s dir -t deb -C $PKG_INSTALL_DIR --name $PKG_NAME --prefix $PKG_INSTALL_DIR .
@@ -30,7 +30,7 @@ test:
 
 There are few important things in the circle.ym.
 
-The first thing is `version: 3.5.1`. When you specify uninstalled version of specific language in `machine` section, then we automatically install the version. The problem here is the installation takes a few minutes and this happens in each build which is exactly what we want to avoid.
+The first thing is `version: 3.5.2`. When you specify uninstalled version of specific language in `machine` section, then we automatically install the version. The problem here is the installation takes a few minutes and this happens in each build which is exactly what we want to avoid.
 
 ![img1](./img1.png)
 
@@ -49,11 +49,11 @@ Assuming you store the package somewhere, you can install with `dpkg` command. H
 ```
 machine:
   python:
-    version: 3.5.1
+    version: 3.5.2
 
   pre:
-    - curl -L -O https://s3-external-1.amazonaws.com/circle-downloads/circle-pyenv-python-3.5.1_1.0_amd64.deb
-    - sudo dpkg -i circle-pyenv-python-3.5.1_1.0_amd64.deb
+    - curl -L -O https://s3-external-1.amazonaws.com/circle-downloads/circle-pyenv-python-3.5.2_1.0_amd64.deb
+    - sudo dpkg -i circle-pyenv-python-3.5.2_1.0_amd64.deb
 
 dependencies:
   override:
@@ -64,7 +64,7 @@ test:
     - python --version
 ```
 
-`dpkg -i` command will install the python 3.5.1 in the exactly the same place where `pyenv` will install so the installation doesn't happen.
+`dpkg -i` command will install the python 3.5.2 in the exactly the same place where `pyenv` will install so the installation doesn't happen.
 
 ![img2](./img2.png)
 

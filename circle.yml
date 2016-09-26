@@ -1,10 +1,10 @@
 machine:
   python:
-    version: 3.5.1
+    version: 3.5.2
 
   pre:
-    - curl -L -O https://s3-external-1.amazonaws.com/circle-downloads/circle-pyenv-python-3.5.1_1.0_amd64.deb
-    - sudo dpkg -i circle-pyenv-python-3.5.1_1.0_amd64.deb
+    - curl -L -O https://s3-external-1.amazonaws.com/circle-downloads/circle-pyenv-python-3.5.2_1.0_amd64.deb
+    - sudo dpkg -i circle-pyenv-python-3.5.2_1.0_amd64.deb
 
 dependencies:
   override:
